@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+{% load static %}
+	<head>
+		<title>Task 1</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+		<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+		<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}" ></script>
+		<script>
+		function getCookie(name) {
+			let cookieValue = null;
+			if (document.cookie && document.cookie !== '') {
+				const cookies = document.cookie.split(';');
+				for (let i = 0; i < cookies.length; i++) {
+					const cookie = cookies[i].trim();
+					// Does this cookie string begin with the name we want?
+					if (cookie.substring(0, name.length + 1) === (name + '=')) {
+						cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+						break;
+					}
+				}
+			}
+			return cookieValue;
+		}
+		const csrftoken = getCookie('csrftoken');
+	</script>
+	</head>
+	<body data-editor="ClassicEditor" data-collaboration="false">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" id="pubid" aria-current="page" >Publish</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+		<main>
+			<div class="centered">
+				<div class="row row-editor">
+					<div class="mb-3">
+						  <label for="exampleFormControlInput1" class="form-label">Title</label>
+						  <input type="text" class="form-control" id="title_id" placeholder="enter title">
+					</div>
+					<div class="mb-3">
+						  <label for="exampleFormControlInput1" class="form-label">Your name</label>
+						  <input type="text" class="form-control" id="name_id" placeholder="enter your name">
+					</div>
+					<div class="mb-3">
+						  <label for="exampleFormControlTextarea1 " class="form-label">Content</label>
+						  <textarea name="content" class="form-control editor" id="text_id" rows="3"></textarea>
+						</div>
+				</div>
+			</div>
+			<div id="root"></div>
+			<p></p>
+		</main>
+		<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+		<script src="{% static 'ckeditor/ckeditor.js' %}"></script>
+		<script src="{% static 'ckeditor/adapters/jquery.js' %}"></script>
+		<script src="{% static 'js/index.js' %}"></script>
+
+	</body>
+</html>
